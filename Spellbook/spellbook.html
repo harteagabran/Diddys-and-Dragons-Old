@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+	<title>Spellbook</title>
+	<link href="../Main.css" type="text/css" rel="stylesheet"/>
+	<link href="Spellbook.css" type="text/css" rel="stylesheet"/>
+	<link rel="icon" href="../Images/Icons/DM ico.png" type="image/png" size="64x64">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div id="pop"></div>
+	<div id="ctx-menu">
+		<div id="rcName">Name</div>
+		<hr>
+		<div class="item" onclick="showSpell('', {request: true}); closeRCMenu()">Display Spell</div>
+		<hr>
+		<div class="item" onclick="closeRCMenu()">Cancel</div>
+	</div>
+	<div id="menu-hold">
+		<img id="menu-open" src="../Images/Icons/DM ico.png" onclick="openNav()"/>
+	</div>
+	<nav id="sideNav">
+		<a id="navClose" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="../Player-select/players.html">Add/Drop Players</a>
+		<a href="../Battle/battle.html" >Battle</a>
+		<a href="../Stats/stat.html">Status</a>
+		<a href="javascript:void(0)" id="selNav">Spellbook</a>
+		<a href="#">Credits</a>
+	</nav>
+	<h1 class="header">Master Spellbook</h1>
+	<div id="main-body">
+		<div id="search-box">
+			<label for="search">Find Spell: </label>
+			<input id="bar" name="search" type="text" onkeyup="search(this)" placeholder="spell name"></input>
+			<label for="lv-filter">Level:</label>
+			<select id="filter1" name="lv-filter" onchange="filter()">
+				<option value="all" selected>All</option>
+				<option value="Cantrip">Cantrip</option>
+				<option value="1st-">1st Level</option>
+				<option value="2nd-">2nd Level</option>
+				<option value="3rd-">3rd Level</option>
+				<option value="4th-">4th Level</option>
+				<option value="5th-">5th Level</option>
+				<option value="6th-">6th Level</option>
+				<option value="7th-">7th Level</option>
+				<option value="8th-">8th Level</option>
+				<option value="9th-">9th Level</option>
+			</select>
+			<label for="school-filter">School:</label>
+			<select id="filter2" name="school-filter" onchange="filter()">
+				<option value="all" selected>All</option>
+				<option value="Abjuration">Abjuration</option>
+				<option value="Conjuration">Conjuration</option>
+				<option value="Divination">Divination</option>
+				<option value="Enchantment">Enchantment</option>
+				<option value="Evocation">Evocation</option>
+				<option value="Illusion">Illusion</option>
+				<option value="Necromancy">Necromancy</option>
+				<option value="Transmutation">Transmutation</option>
+			</select>
+			<label for="class-filter">Class:</label>
+			<select id="filter3" name="class-filter" onchange="filter()">
+				<option value="all" selected>All</option>
+				<option value="Artificer">Artificer</option>
+				<option value="Bard">Bard</option>
+				<option value="Cleric">Cleric</option>
+				<option value="Druid">Druid</option>
+				<option value="Paladin">Paladin</option>
+				<option value="Ranger">Ranger</option>
+				<option value="Sorcerer">Sorcerer</option>
+				<option value="Warlock">Warlock</option>
+				<option value="Wizard">Wizard</option>
+				<option value="Ritual">Ritual Caster</option>
+			</select>
+			<input type="checkbox" id="filter4" name="vocal" onclick="filter()" value="V">
+			<label for="vocal">V</label>
+			<input type="checkbox" id="filter5" name="somatic" onclick="filter()" value="S">
+			<label for="somatic">S</label>
+			<input type="checkbox" id="filter6" name="material" onclick="filter()" value="M">
+			<label for="material">M</label>
+			<input type="checkbox" id="filter7" name="ritual" onclick="filter()" value="yes">
+			<label for="ritual">Ritual</label>
+			<input type="checkbox" id="filter8" name="concen" onclick="filter()" value="yes">
+			<label for="concen">Concentration</label>
+			<br>
+			<button class="search-btn" onclick="resetFilters({all: true})">Reset</button>
+		</div>
+		<div id="spells"></div>
+	</div>
+	<script src="../Databases/spells.js"></script>
+	<script src="../Universal.js"></script>
+	<script src="spellbook.js"></script>
+</body>

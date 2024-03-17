@@ -1,0 +1,94 @@
+#main-body {
+	padding-top: 10vh;
+}
+#search-box {
+	position: sticky;
+	display: grid;
+	background-color: black;
+	top: 0;
+	color: var(--main-txt);
+	width: 100%;
+	padding: 1vh 0;
+	grid-template-areas:
+	  "sp search search lv typ1 sc typ2 cl typ3 b1 v b2 s b3 m b4 con b5 rit"
+	  "reset reset reset reset reset reset reset reset reset reset reset reset reset reset reset reset reset reset reset";
+	
+}
+#search-box > * {
+	font-size: 20px;
+}
+.spell-btn {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: baseline;
+	background-color: var(--spell-btn-bg);
+	color: var(--main-txt);
+	margin-bottom: 2vh;
+	border-radius: 10px;
+	cursor: pointer;
+	padding: 10px 3vw;
+	width: 100vw;
+	text-align: left;
+	border: none;
+	outline: none;
+	font-size: 24px;
+}
+.search-btn {
+	background-color: var(--main-btn-bg);
+	color: var(--main-txt);
+	font-size: 18px;
+	grid-area: reset;
+}
+.spell-btn:hover {
+	background-color: var(--light-spell-btn-bg);
+}
+
+.names, .classes {
+	flex: 1 1 100%;
+}
+.classes {
+	text-align: right;
+}
+/*POP DESCRIPTIONS*/
+.spell-des {
+	text-align: left;
+	width: 80vw;
+	margin: 0 auto;
+}
+#desDes p {
+	margin-bottom: 2vh;
+}
+p {
+	font-size: 24px;
+	line-height: 1.5em;
+}
+h1 {
+	font-size: 30px;
+	text-decoration: none;
+	font-weight: bold;
+}
+table {
+	border-spacing: 0px;
+	border: 3px solid blue;
+	display: inline-block;
+	margin: 15px;
+}
+th, td {
+	padding: 5px 30px 5px 10px;
+	font-size: 110%;
+}
+em {
+	font-style: normal;
+	font-weight: bold;
+}
+td.center {
+	text-align: center;
+	width: 40px;
+}
+#desDes {
+	margin: 2vh 0;
+}
+.hide {
+	display: none;
+}

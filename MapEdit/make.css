@@ -1,0 +1,26 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+#canvasHold {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+#cursor {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+#map {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#cursor:hover {
+    cursor: cell;
+}

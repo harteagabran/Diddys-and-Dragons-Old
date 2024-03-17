@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+	<title>Monster Select</title>
+	<link href="../Main.css" type="text/css" rel="stylesheet"/>
+	<link href="Battle.css" type="text/css" rel="stylesheet"/>
+	<link rel="icon" href="../Images/Icons/DM ico.png" type="image/png" size="64x64">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div id="pop"></div>
+	<div id="ctx-menu">
+		<div id="rcName">Name</div>
+		<hr>
+		<div class="item" onclick="viewImg(); closeRCMenu()">View Image</div>
+		<div class="item" onclick="viewImg({show: true}); closeRCMenu()">Show Image</div>
+		<hr>
+		<div class="item" onclick="closeRCMenu()">Cancel</div>
+	</div>
+	<div id="menu-hold">
+		<img id="menu-open" src="../Images/Icons/DM ico.png" onclick="openNav()"/>
+	</div>
+	<nav id="sideNav">
+		<a id="navClose" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="../Player-select/players.html">Add/Drop Players</a>
+		<a href="javascript:void(0)" id="selNav">Battle</a>
+		<a href="../Stats/stat.html">Status</a>
+		<a href="../Spellbook/spellbook.html">Spellbook</a>
+		<a href="#">Credits</a>
+	</nav>
+	<h1 class="header">Choose Monsters</h1>
+	<div id="main-body">
+		<button id="random-enc" class="main-btn" onclick="randomEnc()">&#128128; Random Encounter 
+			<select id="main-btn-level" name="enc-level">
+				<option value="easy">Easy</option>
+				<option value="medium">Medium</option>
+				<option value="hard">Hard</option>
+				<option value="deadly">Deadly</option>
+			</select>
+		</button>
+		<div id="legend">
+			<span class="lCol easy">
+				<h2>Easy</h2>
+			</span>
+			<span class="lCol medium">
+				<h2>Medium</h2>
+			</span>
+			<span class="lCol hard">
+				<h2>Hard</h2>
+			</span>
+			<span class="lCol deadly">
+				<h2>Deadly</h2>
+			</span>
+		</div>
+		<div id="search-box">
+			<label for="search">Find Monster: </label>
+			<input id="bar" name="search" type="text" onkeyup="search(this)" placeholder="monster name"></input>
+			<label for="type-filter">Type:</label>
+			<select id="filter1" name="type-filter" onchange="filter()">
+				<option value="all" selected>All</option>
+				<option value="aberration">Aberration</option>
+				<option value="beast">Beast</option>
+				<option value="celestial">Celestial</option>
+				<option value="construct">Construct</option>
+				<option value="dragon">Dragon</option>
+				<option value="elemental">Elemental</option>
+				<option value="fey">Fey</option>
+				<option value="fiend">Fiend</option>
+				<option value="giant">Giant</option>
+				<option value="humanoid">Humanoid</option>
+				<option value="monstrosity">Monstrosity</option>
+				<option value="ooze">Ooze</option>
+				<option value="plant">Plant</option>
+				<option value="undead">Undead</option>
+			</select>
+			<label for="size-filter">Size:</label>
+			<select id="filter2" name="size-filter" onchange="filter()">
+				<option value="all">All</option>
+				<option value="Tiny">Tiny</option>
+				<option value="Small">Small</option>
+				<option value="Medium">Medium</option>
+				<option value="Large">Large</option>
+				<option value="Huge">Huge</option>
+				<option value="Gargantuan">Gargantuan</option>
+			</select>
+			<label for="cr-filter">CR:</label>
+			<select id="filter3" name="cr-filter" onchange="filter()">
+				<option value="all">All</option>
+				<option value="0">0</option>
+				<option value="1/8">1/8</option>
+				<option value="1/4">1/4</option>
+				<option value="1/2">1/2</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+			</select>
+			<label for="loca-filter">Place: </label>
+			<select id="filter4" name="loca-filter" onchange="filter()">
+				<option value="all">Any</option>
+				<option value="Aquatic">Aquatic</option>
+				<option value="Arctic">Arctic</option>
+				<option value="Cave">Cave</option>
+				<option value="Coast">Coast</option>
+				<option value="Desert">Desert</option>
+				<option value="Dungeon">Dungeon</option>
+				<option value="Forest">Forest</option>
+				<option value="Grassland">Grassland</option>
+				<option value="Mountain">Mountain</option>
+				<option value="Planar">Planar</option>
+				<option value="Ruins">Ruins</option>
+				<option value="Swamp">Swamp</option>
+				<option value="Underground">Underground</option>
+				<option value="Urban">Town/City</option>
+			</select>
+		</div>
+		<div id="monsters"></div>
+	</div>
+	<footer class="easy">
+	</footer>
+	<script src="../Databases/enemy.js"></script>
+	<script src="../Databases/exp-calc.js"></script>
+	<script src="../Universal.js"></script>
+	<script src="monsters.js"></script>
+</body>

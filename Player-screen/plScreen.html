@@ -1,0 +1,170 @@
+<html>
+<head>
+	<title>Player Screen</title>
+	<link href="Screen.css" type="text/css" rel="stylesheet"/>
+	<link rel="icon" href="../Images/Icons/DM ico.png" type="image/png" size="64x64">
+	<meta charset="UTF-8">
+	<style>
+    #chat-window {
+            margin-top: 12px;
+          width: 1070px;
+          height: 340px;
+          background-color: black;
+      }
+      #chat {
+          width: 100%;
+          height: 100%;
+      }
+      img {
+          vertical-align: middle;
+      }
+      .server {
+          color: grey;
+          font-size: 24px;
+      }
+      .message {
+          min-height: 53px;
+          color: white;
+          font-size: 40px;
+          border-bottom: 2px solid gray;
+          margin-bottom: 3px; 
+          display: flex;
+      }
+      .user {
+          flex: 0 0 300px;
+          text-align: center;
+          margin-right: 2px;
+      }
+    </style>    
+    </style>
+</head>
+<body onunload="savePlayers()">
+	<div id="pop"></div>
+	<div id="pl-area">
+	</div>
+	<div id="bottom">
+		<div id="main-hub">
+			<h1 id="loca">Somewhere, Elsewhere</h1>
+			<div id="chat-window">
+			<div id="chat"></div>
+            </div>
+            <!--
+			<h2 id="time" class="day">&#127774;</h2>
+			<div id="song" class="marquee">
+			<div class="marquee-inner">
+			<span><h3 class="song-title">&#119136; "<i class="song-name">Gerudo Valley</i>" | <b class="song-album">The Legend of Zelda: Ocarina of Time</b> | <b class="song-artist">Koji Kondo</b></h3></span>
+			<span><h3 class="song-title">&#119136; "<i class="song-name">Gerudo Valley</i>" | <b class="song-album">The Legend of Zelda: Ocarina of Time</b> | <b class="song-artist">Koji Kondo</b></h3></span>
+			</div></div> -->
+		</div>
+	</div>
+	<script src="../Universal.js"></script>
+	<script src="screen.js"></script>
+	<script>
+        const socket = new WebSocket('ws://localhost:8000');
+
+    let colors = new Object();
+    let chat = document.getElementById('chat');
+    let maxH = parseFloat(chat.scrollHeight);
+    let roundD = maxH % 10;
+    maxH -= (roundD + 10);
+    let currentH = 0;
+
+
+    function checkMsgOverflow() {
+        if (currentH < maxH) {
+            //everything is fine we can stop here
+            console.log(currentH);
+            return;
+        } else {
+            console.log('not fine');
+            let firstChildH = parseFloat(chat.firstElementChild.offsetHeight);
+            //remove oldest message;
+            chat.removeChild(chat.firstElementChild);
+            currentH -= firstChildH;
+        }
+    }
+    function checkColor(key) {
+
+        if(key in colors) {
+            return colors[key];
+        } else {
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+
+            colors[key] = '#' + randomColor;
+
+            return colors[key];
+        }
+    }
+    function formatEmotes(text, emotes) {
+        var splitText = text.split('');
+        for(var i in emotes) {
+            var e = emotes[i];
+            for(var j in e) {
+                var mote = e[j];
+                if(typeof mote == 'string') {
+                    mote = mote.split('-');
+                    mote = [parseInt(mote[0]), parseInt(mote[1])];
+                    var length =  mote[1] - mote[0],
+                        empty = Array.apply(null, new Array(length + 1)).map(function() { return '' });
+                    splitText = splitText.slice(0, mote[0]).concat(empty).concat(splitText.slice(mote[1] + 1, splitText.length));
+                    splitText.splice(mote[0], 1, '<img class="emoticon" src="http://static-cdn.jtvnw.net/emoticons/v1/' + i + '/2.0">');
+                }
+            }
+        }
+        return splitText.join('');
+    }
+    function makeMsg(msg, name, color, emotes) {
+        name = name ?? 'server';
+        color = color ?? 'grey';
+        emotes = emotes ?? null;
+        let add;
+
+        //if emotes change message to now include img tags
+        if(emotes) {
+            msg = formatEmotes(msg, emotes);
+        }
+
+        if(name == 'server' && color == 'grey') {
+            add = document.createElement('I');
+            add.className = 'server';
+            add.textContent = msg;
+        } else {
+            add = document.createElement('P');
+            add.className = 'message';
+            add.innerHTML = `<span class="user"><b style="color: ${color}">${name}</b></span><span>${msg}</span`; 
+        }
+
+        chat.append(add);
+        currentH += parseFloat(add.offsetHeight);
+
+        //check to make sure not too many messages showing up
+        while(currentH > maxH) {
+            checkMsgOverflow();
+        }
+    }
+    function proccessMsg(info) {
+        let name = info['name'];
+        let key = name.toLowerCase();
+        let msg = info['message'];
+        let color = checkColor(key);
+        let emotes;
+
+        if(info['emotes']) {
+            emotes = info['emotes'];
+        }
+
+        makeMsg(msg, name, color, emotes);
+    }
+
+    //on open connection
+    socket.addEventListener('open', function(e) {
+        makeMsg('Connected to chat server');
+    });
+
+    //message (assumed JSON)
+    socket.addEventListener('message', function(e) {
+        let data = JSON.parse(e.data);
+        proccessMsg(data);
+    })
+    </script>
+</body>

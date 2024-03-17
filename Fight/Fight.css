@@ -1,0 +1,256 @@
+ol {
+	list-style-position: inside;
+}
+ol li b {
+	color: green;
+}
+li {
+	margin-bottom: 10px;
+}
+li:first-child {
+	margin-top: 10px;
+}
+#start-btn {
+	background-color: var(--crimson-red);
+	color: white;
+	font-size: 60px;
+	width: 100vw;
+	padding: 5vh 0;
+}
+#battle-area {
+	cursor: grab;
+	overflow-x: hidden;
+	white-space: nowrap;
+	user-select: none;
+}
+.entity-box {
+	display: inline-block;
+	height: 25vw;
+	color: black;
+	white-space: normal;
+	width: 500px;
+	background-color: white;
+	padding: 0 10px 10px 10px;
+	border: 10px solid red;
+	border-radius: 20px;
+	overflow-y: scroll;
+	margin: 0 5px 0 5px;
+}
+section:not(.mon-attack) {
+	border-bottom: 3px solid red;
+}
+h1 {
+	font-size: 30px;
+}
+p, i {
+	font-size: 20px;
+	line-height: 1.5em;
+}
+b {
+	letter-spacing: 1px;
+}
+table {
+	width: 100%;
+	text-align: center;
+}
+th, td {
+	font-size: 19px;
+}
+.red {
+	color: red;
+}
+.action {
+	width: 100%;
+	border-bottom: 1px solid red;
+}
+.name{
+	position: -webit-sticky;
+	position: sticky;
+	top: 0;
+	background-color: white;
+	display: block;
+}
+/* INITIATIVE FORM */
+#chara-ini, #mons-ini {
+	height: 45vh;
+}
+#chara-ini h1 {
+	font-size: 3em;
+	text-decoration: underline;
+	color: blue;
+	margin-bottom: 2vh;
+}
+#mons-ini h1 {
+	font-size: 3em;
+	text-decoration: underline;
+	color: red;
+	margin-bottom: 2vh;
+}
+.span-hold , #unit-hold{
+	display: flex;
+	justify-content: space-evenly;
+	margin-bottom: 5vh;
+}
+.ini-hold, .dam-hold {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	text-align: center;
+}
+.ini-hold label {
+	font-size: 32px;
+}
+.ini-hold input {
+	font-size: 35px;
+	border-radius: 5px;
+	text-align: center;
+}
+#mons-ini button {
+	color: white;
+	background-color: var(--crimson-red);
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 20px;
+}
+.nat {
+	color: green;
+	outline: 2px solid green;
+}
+#btn-battle {
+	background-color: var(--crimson-red);
+	color: white;
+	width: 100%;
+	padding: 2vh 0;
+	font-size: 2.5vh;
+}
+/*BATTLE TRACKER */
+#initi-track {
+	color: white;
+	display: flex;
+	user-select: none;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: baseline;
+	padding-bottom: 7vh;
+}
+.battle-unit {
+	text-align: center;
+	flex: 1 1 33%;
+}
+.owner {
+	font-size: 2.5vw;
+}
+.stat-get {
+	text-decoration: none;
+	color: white;
+}
+.ac {
+	color: #66ff00;
+}
+.batIni {
+	margin: 1vh 0;
+	height: 70px;
+	background-color: var(--light-second-bg);
+}
+.turn {
+	background-color: var(--rgt-click-bg-hover);
+}
+.iniNum {
+	display: block;
+	background-color: var(--crimson-red);
+	margin: 0 auto 0 auto;
+	border-radius: 50%;
+	padding: 10px;
+	font-size: 50px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	border: 5px solid white;
+}
+.natural {
+	border: 5px solid green;;
+}
+.hp {
+	color: red;
+}
+.hpT {
+	color: #7AD7F0;
+}
+.units {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.unit {
+	cursor: pointer;
+}
+.unit:hover {
+	color: blue;
+}
+.dam-select {
+	color: orange;
+}
+.dam-select:hover {
+	color: orange;
+	text-decoration: underline;
+}
+/*hpForm */
+.group {
+	display: grid;
+	grid-template-areas: "h1 h1 h1"
+	". input ."
+	"select select select"
+	"btn btn btn";
+}
+#group {
+	grid-area: h1;
+	margin-bottom: 3vh;
+}
+#groupDam {
+	grid-area: input;
+	font-size: 40px;
+	padding: 2vh;
+	border: 8px solid red;
+	border-radius: 15px;
+	text-align: center;
+	margin-bottom: 3vh;
+}
+#unit-hold {
+	grid-area: select;
+	font-size: 35px;
+}
+.res-imm {
+	background-color: var(--crimson-red);
+	color: white;
+}
+#form-submit-hp {
+	grid-area: btn;
+	background-color: var(--crimson-red);
+	color: white;
+}
+#rounds {
+	height: 4vh;
+	font-size: 3vh;
+	text-align: center;
+	color: white;
+	border-top: 1px double white;
+	position: fixed;
+	bottom: 0;
+	background-color: black;
+	width: 100vw;
+	padding-bottom: 1vh;
+}
+#exp-btn {
+	float: right;
+	font-size: 3vh;
+	padding-bottom: 1vh;
+	background-color: var(--crimson-red);
+	color: white;
+	margin-right: 2vw;
+	padding: 1vh;
+}
+#exp-btn:hover, #form-submit-hp:hover, #mons-ini button:hover, #start-btn:hover, #btn-battle:hover{
+	background-color: red;
+	color: white;
+	cursor: pointer;
+}

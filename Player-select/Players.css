@@ -1,0 +1,211 @@
+/* Form styling */
+form {
+	font-size: 2em;
+	padding: 30px auto 0 auto;
+	overflow-x: hidden;
+}
+fieldset div {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+fieldset div label {
+	margin: 0 2px 0 10px;
+}
+input, select{
+	font-size: 18px;
+	margin: 15px 10px 20px 0;
+	width: 50px;
+	height: 50px;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 15px;
+}
+legend {
+	font-size: 48px;
+}
+table, td, th {
+	border: 1px solid white;
+}
+table {
+	border-collapse: collapse;
+	width: 25vw;
+	margin: 0 auto 0 auto;
+}
+td {
+	padding: 0 5px 0 5px;
+	text-align: center;
+}
+#fName {
+	width: 300px;
+	text-align: left;
+}
+#fAva {
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+	vertical-align: middle;
+	border: 3px double white;
+}
+#fchAva {
+	font-size: 34px;
+	padding: 2% 0;
+	background-color: var(--main-bg);
+	color: var(--main-txt);
+}
+#fchAva:hover {
+	background-color: var(--dark-main-bg);
+}
+#fExp, #fShield {
+	width: 100px;
+	text-align: right;
+}
+#fArmor {
+	width: 170px;
+}
+#fWeap , #fInv {
+	border: 1px solid white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+}
+.fWeapI {
+	margin: 0;
+	font-size: 30px;
+	text-align: center;
+	width: 100%;
+	color: var(--main-txt);
+	background-color: black;
+	border: 1px solid white;
+	border-radius: 10px;
+}
+#weap-button, #inv-button, #fSubmit, #fReset{
+	font-size: 30px;
+	width: 100%;
+	color: var(--main-txt);
+	background-color: var(--main-btn-bg);
+}
+.fItemI {
+	display: flex;
+}
+.fItemN {
+	flex: 1 1 60%;
+}
+.item-done {
+	color: blue;
+}
+.item-pack {
+	color: green;
+}
+.fItemA, .fItemW {
+	flex: 1 1 20%;
+}
+#weap-button:hover, #inv-button:hover, #fSubmit:hover #fReset:hover{
+	background-color: var(btn-bg-hover);
+}
+#fPlayer , #fReset{
+	width: 100%;
+}
+/* Main BOdy Styling */
+.owner-accord {
+	background-color: var(--dark-main-bg);
+	color: var(--main-txt);
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+	font-size: 35px;
+}
+.owner-accord:not(:first-of-type) {
+	margin-top: 10px;
+}
+.chara-panels {
+	display: none;
+	color: white;
+	padding: 0 18px;
+	background-color: var(--second-bg);
+	overflow: hidden;
+	width: 100%;
+	cursor: crosshair;
+}
+.active, .owner-accord:hover {
+	background-color: var(--light-main-bg);
+}
+.characters {
+	font-size: 30px;
+	padding: 3px 0 3px 0;
+}
+.show {
+	display: block;
+}
+.picked, .characters:hover {
+	background-color: var(--light-second-bg);
+	border-radius: 5px;
+	color: var(--second-txt);
+}
+/* SESSION SECTION */
+#main-bod {
+	padding-bottom: 80px;
+}
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	padding-top: 10px;
+	background-color: var(--main-bg);
+}
+#sess-pl {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: baseline;
+	width: 100%;
+	height: 100%;
+	color: var(--main-txt);
+	font-size: 20px;
+}
+.span-boi {
+	text-align: center;
+	font-size: 30px;
+	margin: auto 10px auto 5px;
+	flex: 0 1 calc(100%/6);
+}
+.span-boi:hover {
+	text-decoration: line-through;
+	cursor: pointer;
+}
+#submit-bois {
+	color: var(--main-txt);
+	background-color: var(--second-bg);
+	padding: 10px;
+	border-radius: 5px;
+	margin: 0 10px 0 0;
+}
+#avatar-select{
+	overflow-x: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 6;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-wrap: wrap;
+	display: none;
+	background-color: var(--nav-bg);
+}
+.avatar {
+	margin: 0 3px;
+	height: 100px;
+	width: 100px;
+}
+.avatar:hover {
+	outline: 2px solid red;
+}
+#pop {
+	overflow-x: hidden;
+}

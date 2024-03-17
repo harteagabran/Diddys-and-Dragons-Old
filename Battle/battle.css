@@ -1,0 +1,140 @@
+#main-btn-level {
+	margin: 0;
+	height: 100%;
+	background-color: var(--main-btn-bg);
+	color: var(--main-txt);
+	font-size: 24px;
+}
+footer {
+	position: fixed;
+	text-align: right;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: baseline;
+	align-content: flex-start;
+	bottom: 0;
+	width: 100vw;
+	padding-top: 10px;
+	background-color: var(--main-bg);
+	padding-bottom: 1px;
+}
+#legend {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-flow: space-evenly;
+	align-items: baseline;
+	width: 100%;
+	height: 100%;
+	color: var(--main-txt);
+	font-size: 20px;
+}
+.span-mon{
+	text-align: right;
+	font-size: 28px;
+	margin: auto 10px 3px 5px;
+	flex: 0 1 25%;
+	padding-right: 2vw;
+	
+}
+.mon-pl-name:hover {			
+	text-decoration: line-through;
+	cursor: pointer;
+}
+.mon-pl-amnt {
+	width: 40px;
+	height: 30px;
+	line-height: 1.65;
+	font-size: 20px;
+	text-align: center;
+}
+.lCol {
+	text-align: center;
+	font-size: 18px;
+	border: 1px solid white;
+	flex: 0 1 25%;
+}
+#search-box {
+	position: sticky;
+	background-color: black;
+	top: 0;
+	color: var(--main-txt);
+	width: 100%;
+	padding: 1vh 0;
+	
+}
+#search-box > * {
+	font-size: 20px;
+}
+#monsters {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-content: space-around;
+	margin-top: 1vh;
+}
+.mon-hold {
+	flex: 1 1 20%;
+	text-align: center;
+	border: 2px solid red;
+	border-radius: 15px;
+	background-color: white;
+	margin: 1.5px 1px; 
+}
+.mon-hold > * {
+	text-decoration: none;
+	color: black;
+}
+.mon-hold:hover {
+	border-color: blue;
+}
+.mon-hold > *:hover {
+	color: orange;
+}
+.picked {
+	border: 2px solid green;
+	background-color: rgba(0, 151, 19, 0.3);
+}
+.picked > * {
+	color: white;
+}
+.easy {
+	background-color: #88C840;
+	color: #006400;
+}
+.medium {
+	background-color: #F0D840;
+	color: #808000;
+}
+.hard {
+	background-color: red;
+	color: white;
+}
+.deadly {
+	background-color: white;
+	color: red;
+}
+#battle-mon {
+	color: inherit;
+	background-color: inherit;
+}
+#submit-mon {
+	color: #DDA0DD;
+	background-color: #800080;
+	flex: 0 0 100%;
+	height: 100%;
+	font-size: 20px;
+	border-radius: 5px;
+	margin: 0 10px 0 0;
+}
+#submit-mon:hover {
+	filter: hue-rotate(-90deg);
+}
+.display {
+	display: block;
+	height: 80vh;
+	margin: 0 auto;
+}
+.hide {
+	display: none;
+}

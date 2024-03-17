@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+	<title>Fight</title>
+	<link href="../Main.css" type="text/css" rel="stylesheet"/>
+	<link href="Fight.css" type="text/css" rel="stylesheet"/>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div id="pop" class="modal"></div>
+		<div id="ctx-menu">
+		<div id="rcName">Name</div>
+		<hr>
+		<div class="item" onclick="viewImg(); closeRCMenu()">View Image</div>
+		<div class="item" onclick="viewImg({show: true}); closeRCMenu()">Show Image</div>
+		<hr>
+		<div class="item" onclick="closeRCMenu()">Cancel</div>
+	</div>
+	<div id="battle-area">
+		<div class="entity-box">
+			<section>
+				<h1 class="red">Name</h1>
+				<i>Medium undead, lawful evil</i>
+			</section>
+			<section>
+				<p>
+					<b class="red">Armor Class: </b>
+					13 (armor scraps)
+				</p>
+				<p>
+					<b class="red">Hit Points: </b> 
+					13 (2d8 + 4)
+				</p>
+				<p>
+					<b class="red">Speed: </b>30 ft.
+				</p>
+			</section>
+			<section>
+				<table class="red">
+					<thead>
+						<tr>
+							<th>STR</th>
+							<th>DEX</th>
+							<th>CON</th>
+							<th>INT</th>
+							<th>WIS</th>
+							<th>CHA</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>10 (+0)</td>
+							<td>14 (+2)</td>
+							<td>15 (+2)</td>
+							<td>6 (-2)</td>
+							<td>8 (-1)</td>
+							<td>5 (-3)</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<p><b class="red">Damage Vulnerabilities: </b>bludgeoning</p>
+				<p><b class="red">Damage Immunities:</b> poison</p>
+			</section>
+			<p><b>Undead Fortitude: </b> bla bla bla skills</p>
+			<h2 class="red action">Actions</h2>
+			<p><b>Shortsword.</b> <i> Melee Weapon Attack:</i> +4 to hit, reach 5ft., one target. <i>Hit:</i> 5 (1d6 + 2) piercing damage.</p>
+		</div>
+	</div>
+	<div id="initi-track">
+		<button type="button" id="start-btn" onclick="startIni()">Here We Go!!!</button>
+	</div>
+	<footer id="rounds"></footer>
+	<script src="../Databases/enemy.js"></script>
+	<script src="../Universal.js"></script>
+	<script src="fight.js"></script>
+</body>

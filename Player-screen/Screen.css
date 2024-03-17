@@ -1,0 +1,268 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	background: url(../Images/Backgrounds/bgtest.jpg);
+	background-size: 100vw 100vh;
+}
+/*infinite scrolling song */
+.marquee {
+	height: 10%;
+	width: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+	position: relative;
+	margin: auto;
+}
+.marquee-inner {
+	display: block;
+	width: 200%;
+	position: absolute;
+	animation: marquee 20s linear infinite;
+}
+.marquee-inner span {
+	float: left;
+	width: 50%;
+}
+@keyframes marquee {
+	0% { left: 0;}
+	100% {left: -100%;}
+}
+.song-title {
+	font-size: 25px;
+	line-height: 25px;
+}
+#pop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	color: white;
+	overflow-y: hidden;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: none;
+}
+.normal {
+	text-align: center;
+	width: 100vw;
+	height: 100vh;
+}
+.msg {
+	white-space: pre-wrap;
+	text-align: left;
+	font-size: 1.75em;
+	padding: 3vh 4vw;
+	width: 92vw;
+	height: 94vh;
+}
+.inv-pop {
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+}
+.display {
+	display: block;
+	height: 80vh;
+	margin: 0 auto;
+}
+#overlay {
+	display: none;
+}
+#pl-area {
+	display: flex;
+	height: 45vh;
+	width: 100vw;
+	margin-bottom: 2vh;
+}
+.player-view {
+	position: relative;
+	flex: 1 1 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	text-align: center;
+	margin: 0 2px;
+	padding: 2px 0;
+	border-radius: 0 0 10px 10px;
+}
+.changes {
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-size: 9vh;
+	line-height: 45vh;
+	font-weight: bold;
+	text-shadow: 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black;
+}
+.name {
+	font-size: 5vh;
+	height: 15%;
+	border-bottom: 1px solid white;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.stat {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: baseline;
+	border-bottom: 1px solid white;
+	width: 100%;
+	height: 12%;
+	font-size: 4vh;
+}
+.stat > * {
+	flex: 1 1 100%;
+}
+.hp {
+	display: block;
+	color: red;
+}
+.temp {
+	color: #7AD7F0;
+}
+.ac {
+	color: #66ff00;
+	border-right: 1px solid white;
+	border-left: 1px solid white;
+}
+.health-circle, .exp-circle{
+	transition: 3.25S stroke-dashoffset;
+	transform: rotate(-90deg);
+	transform-origin: 50% 50%;
+}
+.player {
+	height: 10%;
+}
+#bottom {
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	height: 53vh;
+}
+.ads {
+	justify-content: space-between;
+}
+.ad {
+	flex: 0 0 20vw;
+}
+#main-hub {
+	flex: 0 1 65vw;
+	position: relative;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	text-align: center;
+	height: 100%;
+	border-radius: 20px 20px 0 0;
+	margin: 0 10px;
+}
+#loca, #song, #time {
+	position: absolute;
+	background-color: black;
+}
+#loca {
+	top: 0;
+	width: 100%;
+	border-top: 3px solid white;
+	border-bottom: 3px solid white;
+	border-radius: 20px 20px 0 0;
+}
+#song {
+	bottom: 0;
+	width: 100%;
+	padding-bottom: 20px;
+	border-top: 2px solid white;
+}
+#time {
+	top: 15%;
+	right: 0;
+	width: 10%;
+	border: 2px solid white;
+	border-right: 0;
+	padding: 5px;
+	font-size: 40px;
+	border-radius: 20px 0 0 20px;
+}
+/* HP & STATUS CHANGES */
+.need-heal {
+	animation: pulse 0.7s ease-out alternate infinite;
+}
+@keyframes pulse {
+	0% {color: red;}
+	100% {color: purple;}
+}
+@keyframes slideUp {
+	0% {margin-top: 25%;
+		opacity: 0;
+	}
+	25% {margin-top: 0%;
+		opacity: 1;
+	}
+	100% {opacity: 0};
+	
+}
+.heal {
+	color: #66ff00;
+	animation: slideUp 3s ease-in;
+}
+.dam {
+	color: #DC143C;
+	animation: slideUp 3s ease-in;
+}
+.ch-exp {
+	color: yellow;
+	animation: slideUp 3s ease-in;
+}
+.ch-armor {
+	color: #7AD7F0;
+	animation: slideUp 3s ease-in;
+}
+/* INVENTORY */
+#inv-hold {
+	display: flex;
+	justify-content: space-evenly;
+	height: 100%;
+	width: 100%;
+}
+.inv-box {
+	flex: 1 1 100%;
+	border: 2px double white;
+	border-radius: 15px;
+	height: 99vh;
+	position: relative;
+}
+.inv-name {
+	text-align: center;
+	position: sticky;
+	font-size: 6vh;
+	background-color: black;
+}
+.inv-items {
+	padding: 0 1vw;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden;
+	height: 85vh;
+}
+.item {
+	font-size: 4vh;
+	border-bottom: 3px solid gray;
+	flex: 1 1 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.inv-weight {
+	font-size: 5vh;
+	border-top: 4px double white;
+	background-color: black;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}

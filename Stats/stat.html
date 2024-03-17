@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+	<title>Statuses</title>
+	<link href="../Main.css" type="text/css" rel="stylesheet"/>
+	<link href="Stat.css" type="text/css" rel="stylesheet"/>
+	<link rel="icon" href="../Images/Icons/DM ico.png" type="image/png" size="64x64">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div id="pop"></div>
+	<div id="item-form">
+	</div>
+	<div id="ctx-menu">
+		<div id="rcName">Name</div>
+		<hr>
+		<div class="item" onclick="closeRCMenu()">Display Spell</div>
+		<hr>
+		<div class="item" onclick="closeRCMenu()">Cancel</div>
+	</div>
+	<div id="menu-hold">
+		<img id="menu-open" src="../Images/Icons/DM ico.png" onclick="openNav()"/>
+	</div>
+	<nav id="sideNav">
+		<a id="navClose" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="../Player-select/players.html">Add/Drop Players</a>
+		<a href="../Battle/battle.html" >Battle</a>
+		<a href="javascript:void(0)" id="selNav">Status</a>
+		<a href="../Spellbook/spellbook.html">Spellbook</a>
+		<a href="#">Credits</a>
+	</nav>
+	<h1 class="header">Player Stats</h1>
+	<div id="main-body">
+		<button id="players-page" type="button" class="main-btn" onclick="contentTog()">&#127758; World/Location</button>
+        <div id="content">
+            <select id="player-select" onchange="drawPlayers()">
+                <option value="all" selected>All</option>
+            </select>
+            <div id="player-section">
+            </div>
+            <div id="world-section" class="hide"></div>
+        </div>
+	</div>
+	<script src="../Databases/equips.js"></script>
+	<script src="../Databases/equipment.js"></script>
+	<script src="../Universal.js"></script>
+	<script src="stat.js"></script>
+</body>
