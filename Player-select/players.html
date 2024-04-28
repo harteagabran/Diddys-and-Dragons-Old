@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+	<title>Add/Remove Players</title>
+	<link href="../Main.css" type="text/css" rel="stylesheet"/>
+	<link href="Players.css" type="text/css" rel="stylesheet"/>
+	<link rel="icon" href="../Images/Icons/DM ico.png" type="image/png" size="64x64">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div id="pop"></div>
+	<div id="avatar-select"></div>
+	<div id="ctx-menu">
+		<div id="rcName">Name</div>
+		<hr>
+		<div class="item" onclick="closeRCMenu()">View Character</div>
+		<div class="item" onclick="closeRCMenu()">Give Character</div>
+		<div class="item" onclick="deleteChar(); closeRCMenu()">Delete Character</div>
+		<hr>
+		<div class="item" onclick="closeRCMenu()">Cancel</div>
+	</div>
+	<div id="menu-hold">
+		<img id="menu-open" src="../Images/Icons/DM ico.png" onclick="openNav()"/>
+	</div>
+	<nav id="sideNav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="javascript:void(0)" id="selNav">Add/Drop Players</a>
+		<a href="../Battle/battle.html">Battle</a>
+		<a href="../Stats/stat.html">Status</a>
+		<a href="../Spellbook/spellbook.html">Spellbook</a>
+		<a href="#">Credits</a>
+	</nav>
+	<h1 class="header">Add/Drop Players</h1>
+	<div id="main-body" style="text-align: center">
+		<button id="add-more" class="main-btn" onclick="playerForm()">&#x1F464; Add New Character</button>
+	</div>
+	<footer>
+		<div id="sess-pl"></div>
+	</footer>
+	<script src="../Databases/equips.js"></script>
+	<script src="../Databases/equipment.js"></script>
+	<script src="../Universal.js"></script>
+	<script src="Players.js"></script>
+</body>
